@@ -11,7 +11,6 @@ function WishList() {
   const { isLoading, wishlistItems } = useSelector(state => state.wishlist)
 
 
-  console.log('wishlistItems = ', wishlistItems);
   const wishlistElements = wishlistItems?.map((product) => {
     return <ProductItem
       key={product.id}
