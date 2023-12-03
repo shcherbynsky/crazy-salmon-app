@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTopProduct } from '../../redux/slices/ProductSlice'
+import { fetchTopProduct } from '../../redux/slices/productSlice'
 import ProductItem from '../ProductItem/ProductItem'
 
 
