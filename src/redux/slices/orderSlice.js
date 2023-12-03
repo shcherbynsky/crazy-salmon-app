@@ -9,7 +9,7 @@ export const getOrders = createAsyncThunk(
 
 
       
-      const { data } = await instance.get('order');
+      const { data } = await instance.get('/order');
     
       return data;
 
@@ -23,7 +23,7 @@ export const addOrder = createAsyncThunk(
   "order/addOrder",
 
   async (obj) => {
-    const { data } = await instance.post(`order`, obj);
+    const { data } = await instance.post(`/order`, obj);
     return data;
   }
 );

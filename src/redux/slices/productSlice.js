@@ -25,7 +25,7 @@ export const fetchProduct = createAsyncThunk(
     
     const { category, sortBy, sortOrder, searchValue } = params;
     const { data } = await instance.get(
-      `/api/product${category ? `?category=${category}` : ""}${sortBy ? `&sort=${sortBy}` : ""}${sortOrder ? `&order=${sortOrder}` : ""}${searchValue ? `&search=${searchValue}` : ""}`);
+      `/product${category ? `?category=${category}` : ""}${sortBy ? `&sort=${sortBy}` : ""}${sortOrder ? `&order=${sortOrder}` : ""}${searchValue ? `&search=${searchValue}` : ""}`);
     return data;
   }
 );
@@ -34,7 +34,7 @@ export const fetchOneProduct = createAsyncThunk(
   async (id) => {
     
     const { data } = await instance.get(
-      `http://localhost:5000/api/product/${id}`);
+      `/product/${id}`);
       
     return data;
   }
@@ -42,7 +42,7 @@ export const fetchOneProduct = createAsyncThunk(
 export const fetchTopProduct = createAsyncThunk(
   "product/fetchTopProduct",
   async (params) => {
-    const { data } = await instance.get(`http://localhost:5000/api/product`);
+    const { data } = await instance.get(`/product`);
     return data;
   }
 );

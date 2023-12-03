@@ -7,7 +7,7 @@ export const addFavouriteItem = createAsyncThunk(
 
   async (productId, { getState }) => {
     const userId = getState().user.user.id;
-    const { data } = await instance.post(`favourite/add`, { productId, userId });
+    const { data } = await instance.post(`/favourite/add`, { productId, userId });
     return data;
   }
 );
@@ -19,7 +19,7 @@ export const removeFromfavouriteItem = createAsyncThunk(
 
   async (productId, { getState }) => {
     const userId = getState().user?.user.id;
-    const { data } = await instance.delete(`favourite?productId=${productId}&userId=${userId}`);
+    const { data } = await instance.delete(`/favourite?productId=${productId}&userId=${userId}`);
     return data;
   }
 );
@@ -29,7 +29,7 @@ export const getfavouriteItems = createAsyncThunk(
   "wishlist/getfavouriteItems",
 
   async (userId) => {
-    const { data } = await instance.post(`favourite`, {userId});
+    const { data } = await instance.post(`/favourite`, {userId});
     
     return data;
   }
