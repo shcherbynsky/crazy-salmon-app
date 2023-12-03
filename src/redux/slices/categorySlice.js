@@ -10,7 +10,7 @@ export const fetchCategory = createAsyncThunk(
 
     async () => {
          const { data } = await instance.get(
-        `/category`
+        `api/category`
         )
         return data;
     }
