@@ -19,7 +19,6 @@ function ProductCard() {
     const { wishlistItems } = useSelector(state => state.wishlist)
 
     const inFavourites = wishlistItems.findIndex((item) => parseInt(item.productId) === parseInt(productId))
-    console.log('inFavourites = ', inFavourites);
     const findItem = cartItems.find((item) => parseInt(item.productId) === parseInt(productId))
 
 
