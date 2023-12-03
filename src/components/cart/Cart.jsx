@@ -10,7 +10,7 @@ import { changeCheckedAddress } from '../../redux/slices/userSlice';
 import { addOrder } from '../../redux/slices/orderSlice';
 import Loader from '../loader/Loader'
 import EmptyPage from '../emptyPage/EmptyPage'
-import AddAddress from '../profile/addAddress';
+import AddAddress from '../profile/AddAddress';
 import CartItem from './CartItem'
 
 function Cart() {
