@@ -5,6 +5,8 @@ import ProfileMenu from './ProfileMenu'
 
 function ProfileLayout() {
 
+    
+
     const menuItems = [
         {
             title: 'Обране',
@@ -24,9 +26,9 @@ function ProfileLayout() {
         },
     ]
 
-    const [sectionTitle, setSectionTitle] = React.useState(menuItems[localStorage.getItem("profileMenuIndex")].title)
+    const {user, profileMenuIndex} = useSelector(state => state.user)
+    const [sectionTitle, setSectionTitle] = React.useState(menuItems[profileMenuIndex]?.title)
 
-    const {user} = useSelector(state => state.user)
 
 
    
