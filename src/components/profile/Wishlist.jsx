@@ -4,7 +4,7 @@ import { getfavouriteItems } from '../../redux/slices/wishlistSlice'
 import EmptyPage from '../emptyPage/EmptyPage'
 import ProductItem from '../ProductItem/ProductItem'
 
-function Wishlist() {
+function WishList() {
 
   const dispatch = useDispatch()
 
@@ -37,4 +37,4 @@ function Wishlist() {
   )
 }
 
-export default Wishlist
+export default WishList
