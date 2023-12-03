@@ -16,7 +16,7 @@ import EditAccount from './components/profile/EditAccount';
 import { getfavouriteItems } from './redux/slices/wishlistSlice';
 import Cart from './components/cart/Cart';
 import { getCartItems } from './redux/slices/cartSlice';
-import AddAddress from './components/profile/addAddress';
+import AddAddress from './components/profile/AddAddress';
 import AddressSection from './components/profile/AddressSection';
 import ProfileLayout from './components/profile/ProfileLayout';
 import CheckOut from './components/cart/CheckOut';
