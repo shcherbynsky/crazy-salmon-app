@@ -11,7 +11,7 @@ function WishList() {
   const { isLoading, wishlistItems } = useSelector(state => state.wishlist)
 
 
-  const wishlistElements = wishlistItems?.map((product) => {
+  const wishlistElements = wishlistItems ? wishlistItems?.map((product) => {
     return <ProductItem
       key={product.id}
       productId={product.id}
@@ -21,7 +21,7 @@ function WishList() {
       price={product.price}
       bestseller={product.bestseller}
     />
-  })
+  }) : []
 
   if (!wishlistElements.length) {
     return <EmptyPage text={'У Вас поки нема улюбленних товарів (('}/>
