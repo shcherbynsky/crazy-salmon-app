@@ -7,14 +7,9 @@ import ProductItem from '../ProductItem/ProductItem'
 function Wishlist() {
 
   const dispatch = useDispatch()
-  // const { user } = useSelector(state => state.user)
+
   const { isLoading, wishlistItems } = useSelector(state => state.wishlist)
-  // const userId = user?.id
-  // React.useEffect(() => {
-  //   if (userId >= 0) {
-  //     dispatch(getfavouriteItems(userId))
-  //   }
-  // }, [])
+
 
   console.log('wishlistItems = ', wishlistItems);
   const wishlistElements = wishlistItems?.map((product) => {
