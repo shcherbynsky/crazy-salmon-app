@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../utils/axios";
+import instance from "../../utils/axios";
 
 export const registerUser = createAsyncThunk(
   "user/registerUser",
 
   async ({ name, phone, password }) => {
     try {
-      const { data } = await axios.post(`auth/registration`, {
+      const { data } = await instance.post(`auth/registration`, {
         name,
         phone,
         password,
@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk(
 
   async ({ phone, password }) => {
    
-      const { data } = await axios.post(`auth/login`, { phone, password });
+      const { data } = await instance.post(`auth/login`, { phone, password });
       return data;
   }
 );
@@ -33,11 +33,10 @@ export const getMe = createAsyncThunk(
 
   async () => {
     try {
-      const { data } = await axios.get(`auth/me`);
+      const { data } = await instance.get(`auth/me`);
 
       return data;
     } catch (error) {
-      console.log("error = ", error);
     }
   }
 );
@@ -52,7 +51,7 @@ export const addAddress = createAsyncThunk(
 
     const userId = state.user.user.id;
 
-    const { data } = await axios.post(`user/address`, { userData, userId });
+    const { data } = await instance.post(`user/address`, { userData, userId });
     return data;
   }
 );
@@ -65,7 +64,7 @@ export const changeAddress = createAsyncThunk(
     const state = getState();
 
     const userId = state.user.user.id;
-    const { data } = await axios.patch(`user/address`, { userData, userId });
+    const { data } = await instance.patch(`user/address`, { userData, userId });
     return data;
   }
 );
@@ -79,7 +78,7 @@ export const deleteAddress = createAsyncThunk(
     const state = getState();
 
     const userId = state.user.user.id;
-    const { data } = await axios.delete(
+    const { data } = await instance.delete(
       `user/address?addressId=${addressId}&userId=${userId}`
     );
 
@@ -93,7 +92,7 @@ export const changeUserData = createAsyncThunk(
   "cart/changeUserData",
 
   async (userData) => {
-    const { data } = await axios.patch(`user/data`, { userData });
+    const { data } = await instance.patch(`user/data`, { userData });
     return data;
   }
 );

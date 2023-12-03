@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../utils/axios";
+import instance from "../../utils/axios";
 
 export const getOrders = createAsyncThunk(
   "order/getOrders",
@@ -9,7 +9,7 @@ export const getOrders = createAsyncThunk(
 
 
       
-      const { data } = await axios.get('order');
+      const { data } = await instance.get('order');
     
       return data;
 
@@ -23,7 +23,7 @@ export const addOrder = createAsyncThunk(
   "order/addOrder",
 
   async (obj) => {
-    const { data } = await axios.post(`order`, obj);
+    const { data } = await instance.post(`order`, obj);
     return data;
   }
 );

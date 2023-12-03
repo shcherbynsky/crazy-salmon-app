@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import instance from "../../utils/axios";
 
 export const sortList = [
   {
@@ -22,9 +22,10 @@ export const sortList = [
 export const fetchProduct = createAsyncThunk(
   "product/fetchProduct",
   async (params) => {
+    
     const { category, sortBy, sortOrder, searchValue } = params;
-    const { data } = await axios.get(
-      `http://localhost:5000/api/product${category ? `?category=${category}` : ""}${sortBy ? `&sort=${sortBy}` : ""}${sortOrder ? `&order=${sortOrder}` : ""}${searchValue ? `&search=${searchValue}` : ""}`);
+    const { data } = await instance.get(
+      `/api/product${category ? `?category=${category}` : ""}${sortBy ? `&sort=${sortBy}` : ""}${sortOrder ? `&order=${sortOrder}` : ""}${searchValue ? `&search=${searchValue}` : ""}`);
     return data;
   }
 );
@@ -32,7 +33,7 @@ export const fetchOneProduct = createAsyncThunk(
   "product/fetchOneProduct",
   async (id) => {
     
-    const { data } = await axios.get(
+    const { data } = await instance.get(
       `http://localhost:5000/api/product/${id}`);
       
     return data;
@@ -41,7 +42,7 @@ export const fetchOneProduct = createAsyncThunk(
 export const fetchTopProduct = createAsyncThunk(
   "product/fetchTopProduct",
   async (params) => {
-    const { data } = await axios.get(`http://localhost:5000/api/product`);
+    const { data } = await instance.get(`http://localhost:5000/api/product`);
     return data;
   }
 );

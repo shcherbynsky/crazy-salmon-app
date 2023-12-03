@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import instance from "../../utils/axios";
 
 
 
@@ -8,8 +9,8 @@ export const fetchCategory = createAsyncThunk(
     "category/fetchCategory",
 
     async () => {
-         const { data } = await axios.get(
-        `http://localhost:5000/api/category`
+         const { data } = await instance.get(
+        `/api/category`
         )
         return data;
     }

@@ -1,13 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../utils/axios";
-import { getCartFromLocalStorage } from "../../utils/getCartFromLocalStorage";
+import instance from "../../utils/axios";
 
 export const getCartItems = createAsyncThunk(
   "cart/getCartItems",
 
   async () => {
 
-      const { data } = await axios.get(`cart`);
+      const { data } = await instance.get(`cart`);
       return data;
     }
 
@@ -22,7 +21,7 @@ export const addItemToCart = createAsyncThunk(
 
     
 
-    const { data } = await axios.post(`cart/add`, {productId});
+    const { data } = await instance.post(`cart/add`, {productId});
     return data;
   }
 );
@@ -37,7 +36,7 @@ export const minusFromCart = createAsyncThunk(
 
     
     
-    const { data } = await axios.patch(`cart/remove`, {productId});
+    const { data } = await instance.patch(`cart/remove`, {productId});
     return data;
   }
 );
@@ -51,7 +50,7 @@ export const removeFromCart = createAsyncThunk(
     const userId = getState().user?.user.id;
     
     if (userId) {
-      const { data } = await axios.delete(
+      const { data } = await instance.delete(
         `cart/remove?productId=${productId}&userId=${userId}`
       );
       return data;
@@ -67,7 +66,7 @@ export const deleteCart = createAsyncThunk(
   async (_, { getState }) => {
     const userId = getState().user?.user.id;
     if (userId) {
-      const { data } = await axios.delete(`cart/deletecart?userId=${userId}`);
+      const { data } = await instance.delete(`cart/deletecart?userId=${userId}`);
       return data;
     }
   }
@@ -91,10 +90,10 @@ export const syncCart = createAsyncThunk(
           productQty: cartItems[i].productQty,
         });
       }
-      const { data } = await axios.post(`cart/sync`, cartData);
+      const { data } = await instance.post(`cart/sync`, cartData);
       return data;
     } else {
-      // const { data } = await axios.post(`cart/sync`, { userId });
+      // const { data } = await instance.post(`cart/sync`, { userId });
       // return data;
     }
   }

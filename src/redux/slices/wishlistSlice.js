@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "../../utils/axios";
+
+import instance from "../../utils/axios";
 
 export const addFavouriteItem = createAsyncThunk(
   "wishlist/addFavouriteItem",
 
   async (productId, { getState }) => {
     const userId = getState().user.user.id;
-    const { data } = await axios.post(`favourite/add`, { productId, userId });
+    const { data } = await instance.post(`favourite/add`, { productId, userId });
     return data;
   }
 );
@@ -18,7 +19,7 @@ export const removeFromfavouriteItem = createAsyncThunk(
 
   async (productId, { getState }) => {
     const userId = getState().user?.user.id;
-    const { data } = await axios.delete(`favourite?productId=${productId}&userId=${userId}`);
+    const { data } = await instance.delete(`favourite?productId=${productId}&userId=${userId}`);
     return data;
   }
 );
@@ -28,7 +29,7 @@ export const getfavouriteItems = createAsyncThunk(
   "wishlist/getfavouriteItems",
 
   async (userId) => {
-    const { data } = await axios.post(`favourite`, {userId});
+    const { data } = await instance.post(`favourite`, {userId});
     
     return data;
   }
