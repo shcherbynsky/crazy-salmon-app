@@ -9,7 +9,7 @@ import Home from './components/Home/Home';
 import HomeLayout from './layout';
 import ProductContent from './components/productContent/ProductContent';
 import Auth from './components/auth/Auth';
-import Wishlist from './components/profile/WishList';
+import WishList from './components/profile/WishList';
 import OrderHistory from './components/profile/OrderHistory';
 import MyAddress from './components/profile/MyAddress';
 import EditAccount from './components/profile/EditAccount';
@@ -68,11 +68,11 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Wishlist />,
+            element: <WishList />,
           },
           {
             path: 'wish-list',
-            element: <Wishlist />,
+            element: <WishList />,
           },
           {
             path: 'order-history',
