@@ -107,6 +107,7 @@ const initialState = {
   status: null,
   message: null,
   isAuthShown: false,
+  profileMenuIndex: parseInt(localStorage.getItem("profileMenuIndex")) || 0,
 };
 
 export const UserSlice = createSlice({
@@ -138,6 +139,10 @@ export const UserSlice = createSlice({
       state.checkedAddress = action.payload
 
 
+    },
+    setProfileMenuIndex: (state, action) => {
+      state.profileMenuIndex = action.payload
+      window.localStorage.setItem('profileMenuIndex', action.payload)
     },
   },
   extraReducers: {
@@ -275,6 +280,6 @@ export const UserSlice = createSlice({
 
 export const isAuthed = (state) => Boolean(state.user.token);
 // Action creators are generated for each case reducer function
-export const { setIsAuthShown, logout, addLocalAddress, changeCheckedAddress } = UserSlice.actions;
+export const { setIsAuthShown, logout, addLocalAddress, changeCheckedAddress, setProfileMenuIndex } = UserSlice.actions;
 
 export default UserSlice.reducer;

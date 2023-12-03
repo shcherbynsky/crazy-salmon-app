@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
-import { logout } from '../../redux/slices/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, setProfileMenuIndex } from '../../redux/slices/userSlice';
 
 function ProfileMenu({ setSectionTitle }) {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [isModalShown, setIsModalShown] = React.useState(false)
-    const [activeMenu, setActiveMenu] = React.useState(parseInt(window.localStorage.getItem('profileMenuIndex')) || 0)
+    // const [activeMenu, setActiveMenu] = React.useState(parseInt(window.localStorage.getItem('profileMenuIndex')) || 0)
+    const {profileMenuIndex} = useSelector(state => state.user)
+
 
     const menuItems = [
         {
@@ -33,10 +35,10 @@ function ProfileMenu({ setSectionTitle }) {
     ]
 
     React.useEffect(() => {
-        return () => {
-            setActiveMenu(0)
-            window.localStorage.setItem('profileMenuIndex', 0)
-        }
+        // return () => {
+        //     setActiveMenu(0)
+        //     window.localStorage.setItem('profileMenuIndex', 0)
+        // }
     }, [])
 
     const onLogoutClick = () => {
@@ -46,7 +48,6 @@ function ProfileMenu({ setSectionTitle }) {
     }
 
     const onYesModalButtonClick = () => {
-        console.log('close');
         dispatch(logout())
         navigate('/')
         setIsModalShown(false)
@@ -54,18 +55,18 @@ function ProfileMenu({ setSectionTitle }) {
 
     const onMenuClick = (index) => {
         if (index !== 4) {
-            setActiveMenu(index)
             setSectionTitle(menuItems[index].title)
-            window.localStorage.setItem('profileMenuIndex', index)
+            dispatch(setProfileMenuIndex(index))
         }
 
     }
 
     const menuElements = menuItems.map((item, index) => {
+
         return (
             <li
                 key={index}
-                className={"menu-profile__item" + (activeMenu === index ? " _active" : "") + (activeMenu === 2 ? " menu-profile__item-address" : "")}
+                className={"menu-profile__item" + (profileMenuIndex === index ? " _active" : "") + (profileMenuIndex === 2 ? " menu-profile__item-address" : "")}
                 onClick={() => onMenuClick(index)}>
                 <Link to={index !== 4 && item.url} className="menu-profile__link">{item.title}</Link>
             </li>
