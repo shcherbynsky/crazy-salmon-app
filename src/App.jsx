@@ -4,15 +4,11 @@ import './App.scss'
 import React from 'react'
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
-import Header from './components/header/Header'
-import { fetchCategory } from './redux/slices/categorySlice'
-import Menu from './components/headerMenu/HeaderMenu'
-import Footer from './components/footer/Footer'
+
 import Home from './components/Home/Home';
 import HomeLayout from './layout';
 import ProductContent from './components/productContent/ProductContent';
 import Auth from './components/auth/Auth';
-import Profile from './components/profile/Profile';
 import Wishlist from './components/profile/WishList';
 import OrderHistory from './components/profile/OrderHistory';
 import MyAddress from './components/profile/MyAddress';
@@ -103,39 +99,7 @@ const router = createBrowserRouter([
           
         ],
       },
-      // {
-      //   path: '/profile',
-      //   element: <Profile />,
-      //   children: [
-      //     {
-      //       path: 'wish-list',
-      //       element: <Wishlist />,
-      //     },
-      //     {
-      //       path: 'order-history',
-      //       element: <OrderHistory />,
-      //     },
-      //     {
-      //       path: 'address-book',
-      //       element: <AddressSection />,
-      //       children: [
-      //         {
-      //           index: true,
-      //           element: <MyAddress />,
-      //         },
-      //         {
-      //           path: 'add-address',
-      //           element: <AddAddress />,
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       path: 'edit-account',
-      //       element: <EditAccount />,
-      //     },
-          
-      //   ],
-      // },
+      
       {
         path: '*',
         element: <Navigate to='/'/>,
@@ -148,11 +112,7 @@ const router = createBrowserRouter([
 function App() {
 
   const dispatch = useDispatch()
-  // const {categoryItems} = useSelector(state => state.category)
-
-  // React.useEffect(()=> {
-  //   dispatch(fetchCategory()) 
-  // }, [])
+  
 
   const { user, token } = useSelector(state => state.user)
 
