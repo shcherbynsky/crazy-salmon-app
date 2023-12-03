@@ -1,0 +1,12 @@
+.add-address {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &__body {
+    justify-self: stretch;
+    max-width: 600px;
+  }
+}

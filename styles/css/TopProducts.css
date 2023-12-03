@@ -1,0 +1,9 @@
+.top {
+  margin-bottom: 30px;
+}
+.top__body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-content: space-between;
+  gap: 40px;
+}/*# sourceMappingURL=TopProducts.css.map */

@@ -1,0 +1,24 @@
+.top {
+    margin-bottom: 30px;
+    ;
+    // .top__container
+
+    &__container {
+    }
+
+    // .top__title
+
+    &__title {
+    }
+
+    // .top__body
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-content: space-between;
+        gap: 40px;
+    }
+}
+.title {
+}

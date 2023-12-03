@@ -1,0 +1,10 @@
+.add-address {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-address__body {
+  justify-self: stretch;
+  max-width: 600px;
+}/*# sourceMappingURL=AddAddress.css.map */

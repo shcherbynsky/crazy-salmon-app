@@ -1,0 +1,34 @@
+.logo {
+  max-width: 120px;
+  flex: 0 0 120px;
+  justify-self: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 420px) {
+  .logo {
+    flex: 0 0 80px;
+  }
+}
+.logo__img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+  max-width: 120px;
+}
+.logo__img img {
+  max-width: 70%;
+}
+.logo__name {
+  width: 100%;
+  text-align: center;
+  font-family: "Comforter", sans-serif;
+  font-size: 38px;
+  line-height: 0.7;
+}
+@media (max-width: 420px) {
+  .logo__name {
+    font-size: 24px;
+  }
+}/*# sourceMappingURL=Logo.css.map */

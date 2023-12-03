@@ -1,0 +1,117 @@
+<div class="checkout">
+  <div class="checkout__container">
+      <h3 class="heckout__title title">Оформлення замовлення</h3>
+      <div class="checkout__body">
+          <form onSubmit={handleSubmit(onSubmit)} class="checkout__form form">
+              <label class='form__label'>
+                  Ім'я:
+                  <div class={"form__item" + (errors?. ? ' error' : '')}>
+                      <input class='input input-' type="text" value={user?. ? user. : ''}
+                          {...register('', {
+                              required: "Поле обовйязкове для заповнення",
+                          })}
+                      />
+                  </div>
+                  <div class="input-err">{errors?. && errors..message}</div>
+              </label>
+              <label>
+                  Телефон:
+                  <div class={"form__item" + (errors?.phone ? ' error' : '')}>
+                      <span class="tel-prefix">+380</span>
+                      <input class='input input-tel' type="text" value={user?.phone ? user.phone : ''}
+                          {...register('phone', {
+                              required: "Поле обовйязкове для заповнення",
+                              // onChange: (e) => { onPhoneChange(e) },
+                              minLength: {
+                                  value: 12,
+                                  message: "Перевірте правільність номеру телефона"
+                              }
+                          })}
+                      />
+                  </div>
+                  <div class="input-err">{errors?.phone && errors.phone.message}</div>
+              </label>
+              <label>
+                  Email:
+                  <div class={"form__item" + (errors?.email ? ' error' : '')}>
+                      <input class='input input-pass' type="email" value={user?.email ? user.email : ''}
+                          {...register('email', {
+                              required: "Поле обовйязкове для заповнення",
+                              minLength: {
+                                  value: 6,
+                                  message: "Пароль має бути довше 6 символів!"
+                              }
+                          })}
+                      />
+                  </div>
+                  <div class="input-err">{errors?.email && errors.email.message}</div>
+              </label>
+              <div class="checkout__address address-checkout">
+                  <div class="address-checkout__title">Адреса доставки:</div>
+                  <div class="address-checkout__value">vulyca</div>
+              </div>
+              <div class="checkout__person person-checkout">
+                  <div class="person-checkout__title">Кількість персон:</div>
+                  <div class="person-checkout__value">Counter</div>
+              </div>
+              <div class="checkout__tophone tophone-checkout">
+                  <div class="tophone-checkout__title">Вам зателефонувати для підтвердження замовлення?</div>
+                  <div class="tophone-checkout__descr">Ми все ж таки можемо зателефонувати, якщо ви замовляєте вперше, або якщо у нас залишились запитання.</div>
+                  <div class="tophone-checkout__body">
+                      <div class="tophone-checkout__item">
+                          <input defaultChecked type="radio" id="no" ="tophone" value="no" />
+                          <label htmlFor="no">Не дзвоніть мені</label>
+                      </div>
+                      <div class="tophone-checkout__item">
+                          <input type="radio" id="yes" ="tophone" value="yes" />
+                          <label htmlFor="yes">Так, зателефонуйте мені</label>
+                      </div>
+                  </div>
+              </div>
+              <textarea class="checkout__comment" placeholder="Залиште додаткові побажання щодо замовлення або підказку, як вас знайти" value={''} onChange={() => console.log('textarea changed')} />
+              <div class="checkout__paymethod paymethod-checkout">
+                  <div class="paymethod-checkout__title">Спосіб оплати</div>
+                  <div class="paymethod-checkout__body">
+                      <div class="paymethod-checkout__item">
+                          <input defaultChecked type="radio" id="cardonsite" ="paymethod" value="cardonsite" />
+                          <label htmlFor="cardonsite">Картою на сайті</label>
+                      </div>
+                      <div class="paymethod-checkout__item">
+                          <input type="radio" id="terminal" ="paymethod" value="terminal" />
+                          <label htmlFor="terminal">Термінал (оплата карткою при отриманні)</label>
+                      </div>
+                      <div class="paymethod-checkout__item">
+                          <input type="radio" id="cash" ="paymethod" value="cash" />
+                          <label htmlFor="cash">Готівкою при отриманні</label>
+                      </div>
+                  </div>
+              </div>
+          </form>
+          <div class="checkout__info info-checkout">
+              <div class="info-checkout__body">
+                  <div class="info-checkout__item">
+                      <div class="info-checkout__title">Всього:</div>
+                      <div class="info-checkout__value">200 <span>грн</span></div>
+                  </div>
+                  <div class="info-checkout__item">
+                      <div class="info-checkout__title">Доставка:</div>
+                      {
+                          200 > 600 ?
+                              <div class="info-checkout__value info-checkout__value-free">Безкоштовно</div>
+                              :
+                              <div class="info-checkout__value info-checkout__value-charge">
+                                  60 грн.
+                                  <span>Безкоштовно від 600 грн.</span>
+                              </div>
+                      }
+                  </div>
+                  <div class="info-checkout__item">
+                      <div class="info-checkout__title">Сума до сплати:</div>
+                      <div class="info-checkout__value orange">200<span>грн</span></div>
+                  </div>
+              </div>
+          </div>
+          <input type="submit" value="Швиденько, я чекаю" class="auth__btn btn__long" />
+      </div>
+  </div>
+</div>

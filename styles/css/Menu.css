@@ -1,0 +1,20 @@
+.menu {
+  margin-bottom: 20px;
+}
+.menu__list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.menu__link {
+  color: #000;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+@media (any-hover: hover) {
+  .menu__link:hover {
+    color: #FF6600;
+  }
+}/*# sourceMappingURL=Menu.css.map */

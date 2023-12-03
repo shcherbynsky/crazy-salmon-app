@@ -1,0 +1,137 @@
+.productcard {
+    padding-bottom: 40px;
+    // .productcard__body
+
+    &__body {
+        display: flex;
+        gap: 20px;
+
+        @media (max-width: 767.98px) {
+            margin: 0 auto;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    // .productcard__img
+
+    &__img {
+        align-self: flex-start;
+
+        position: relative;
+        flex: 0 1 40%;
+        // max-width: 470px;
+
+        position: relative;
+        padding-bottom: 36.71875%;
+
+        border-radius: 10px;
+        overflow: hidden;
+
+        @media (max-width: 767.98px) {
+            align-self: center;
+            flex: 1 1 auto;
+            width: 100%;
+            padding-bottom: 100%;
+            // padding-bottom: 63.773%;
+        }
+
+        & img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    // .productcard__content
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 3vw, 40px);
+
+        font-size: clamp(14px, 2vw, 22px);
+        font-weight: 300;
+
+        @media (max-width: 767.98px) {
+            width: 100%;
+            // max-width: 470px;
+        }
+    }
+
+    // .productcard__title
+
+    &__title {
+        font-size: clamp(18px, 4vw, 36px);
+        font-weight: 700;
+    }
+
+    // .productcard__descr
+
+    &__descr {
+        max-width: 400px;
+    }
+
+    // .productcard__compound
+
+    &__compound {
+    }
+
+    &__bottom-block {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+
+    // .product__price
+
+    &__price {
+        color: #ff6600;
+        font-weight: 400;
+        font-size: 36px;
+
+        & span {
+            font-size: 21px;
+        }
+
+        @media (max-width: 767.98px) {
+            font-size: clamp(30px, 5vw, 36px);
+        }
+    }
+
+    & .counter {
+        width: 140px;
+        height: 39px;
+    }
+}
+.compound-productcard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    margin-bottom: clamp(0px, 1vw, 30px);
+    
+
+    // .compound-productcard__item
+
+    &__item {
+        display: flex;
+        gap: 5px;
+    }
+
+    // .compound-productcard__title
+
+    &__title {
+    }
+
+    // .compound-productcard__value
+
+    &__value {
+    }
+}
+
+

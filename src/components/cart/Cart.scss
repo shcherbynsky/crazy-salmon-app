@@ -1,0 +1,264 @@
+.cart {
+    flex: 1 1 auto;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+
+    // .cart__container
+
+    &__container {
+        width: 100%;
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+   
+
+    &__back-btn {
+        margin-right: 20px;
+        background-color: #e6e6e6;
+        padding: 0 5px;
+        cursor: pointer;
+    }
+
+    // .cart__title
+
+    &__title {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex: 1 1 auto;
+    }
+
+    &__items {
+        flex: 1 1 auto;
+    }
+
+    
+
+    
+
+    &__order-btn {
+        margin-left: auto;
+        width: 220px!important;
+
+        @media (max-width: 767.98px) {
+            margin-left: 0;
+            align-self: center;
+        }
+    }
+
+    
+
+       
+
+     
+
+}
+
+.address-block {
+    font-size: clamp(16px, 2vw, 18px);
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+
+    margin-bottom: 20px;
+
+    @media (max-width: 510px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__icon {
+        font-size: 30px;
+        // transform: translateY(3px);
+    }
+
+    &__title {
+        white-space: nowrap;
+    }
+
+    &__value {
+        
+        color: #FF6600;
+        padding-right: 10px;
+
+        &-body {
+            position: relative;
+        }
+
+        &-content {
+
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__drop-icon {
+        // font-size: 30px;
+        transform: scale(1.5);
+    }
+
+    &__add-button {
+        cursor: pointer;
+        color: #FF6600;
+    }
+
+    &__drop {}
+}
+
+.info-cart {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    margin-bottom: 20px;
+
+    @media (max-width: 767.98px) {
+        align-self: flex-end;
+    }
+
+    &__body {
+        
+        display: grid;
+        gap: 10px;
+        // padding-top: 20px;
+        font-size: clamp(14px, 2vw, 16px);
+
+        
+    }
+
+    // .info-cart__item
+
+    &__item {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 20px;
+    }
+
+    // .info-cart__title
+
+    &__title {
+        text-align: right;
+    }
+
+    // .info-cart__value
+
+    &__value {
+        text-align: left;
+
+        &-free {
+            color: #00910c;
+        }
+
+        &-charge {
+            
+            display: flex;
+            flex-direction: column;
+
+            & span {
+                margin-top: 5px;
+                font-size: 12px;
+                color: #00910c;
+            }
+        }
+
+    }
+
+}
+
+.drop-address {
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    border: 1px solid #cacaca;
+    // padding: 10px 20px;
+    font-size: clamp(16px, 2vw, 18px);
+
+    transition: .3s;
+
+    &._active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+
+    // .drop-address__body
+
+    &__body {
+        padding: 10px 20px;
+        border-bottom: 1px solid #cacaca;
+    }
+
+
+
+    // .drop-address__items
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    &__item {
+        
+        cursor: pointer;
+        transition: color .3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #FF6600;
+            }
+        }
+    }
+
+    // .drop-address__add-button
+
+    &__add-button {
+        padding: 10px 20px;
+
+        display: flex;
+        gap: 20px;
+        transition: color .3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #FF6600;
+            }
+        }
+    }
+}
+
+
+.cart {
+
+    // .cart__modal
+
+    &__modal {}
+}
+

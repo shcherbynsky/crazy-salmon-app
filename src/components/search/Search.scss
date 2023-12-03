@@ -1,0 +1,115 @@
+.search {
+    flex: 1 1 auto;
+    // width: 100%;
+    // max-width: 500px;
+    background-color: #F9F9F9;
+    padding: 5px 20px;
+        border-radius: 20px;
+
+    @media (max-width: 960px) {
+        position: absolute;
+        z-index: 20;
+        transform-style: preserve-3d;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -100%;
+        width: 260px;
+        transition: top .3s;
+
+        &::before {
+            content: "";
+            position: absolute;
+            transform: translateZ(-1px);
+            left: -10px;
+            right: -10px;
+            top: -10px;
+            bottom: -10px;
+            // width: 200px;
+            background-color: #FE5F1E;
+            border-radius: 30px;
+        }
+      }
+
+    &._active {
+        top: 150px;
+    }
+    // .search__form
+
+    &__form {
+        
+        // min-width: 240px;
+        
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 10px;
+
+
+    }
+
+
+
+    // .search__icon
+
+    &__icon {
+        // width: 16px;
+        // height: 16px;
+        font-size: 20px;
+        color: #a1a1a1;
+
+    }
+    
+
+    &__button {
+        width: 20px;
+        display: none;
+        justify-self: flex-end;
+        font-size: 25px;
+        color: #a1a1a1;
+
+        @media (max-width: 960px) {
+            display: block;
+         }
+
+    }
+    &__icon-close {
+        flex: 0 0 10px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    // .search__input
+
+    &__input {
+        flex: 1 1 auto;
+        // width: 50px;
+        background-color: #F9F9F9;
+
+        @media (max-width: 400px) {
+            font-size: 12px;
+         }
+    }
+}
+
+// .search {
+//     background-color: antiquewhite;
+//     padding: 5px 20px;
+//     border-radius: 20px;
+
+    
+//     &__form {
+//         display: flex;
+//         gap: 5px;
+//     }
+    
+//     &__icon {
+//         width: 20px;
+//         height: 20px;
+//         background-color: aquamarine;
+//     }
+
+//     &__input {}
+
+// }

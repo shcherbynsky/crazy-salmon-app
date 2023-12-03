@@ -1,0 +1,164 @@
+.orders {
+    width: 100%;
+    // .orders__items
+
+    &__items {
+
+    }
+
+    // .orders__item
+
+    &__item {
+        position: relative;
+        padding-bottom: 20px;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #cacaca;
+        }
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+}
+.order {
+    display: flex;
+    flex-direction: column;
+    
+    &__main {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        gap: 20px;
+
+    }
+
+    &__details {
+        height: 0;
+        overflow: hidden;
+        transition: .3s;
+
+        
+
+        &._active {
+            height: 100px;
+            margin-top: 20px;
+
+           
+        }
+
+        &-btn {
+            display: flex;
+            align-items: center;
+            & svg {
+                transition: .3s;
+            }
+            &._active {
+                &  svg{
+                    
+                    transform: rotate(180deg);
+                }
+    
+               
+            }
+
+            
+        }
+    }
+    
+    // .order__info
+    &__info {
+        justify-self: left;
+    }
+
+    &__number {
+        font-weight: 500;
+        font-size: clamp(16px, 3vw, 22px);
+        margin-bottom: 10px;
+    }
+
+
+    &__date-desktop {
+        font-size: clamp(16px, 3vw, 20px);
+        @media (max-width: 560px) {
+            display: none;
+        }
+
+    }
+    &__date-mobile {
+        
+        display: none;
+        @media (max-width: 560px) {
+            display: block;
+        }
+    }
+
+    // .order__sum
+
+    &__sum {
+    }
+
+    // .order__items
+
+    &__items {
+        justify-self: flex-end;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    // .order__item
+
+    &__item {
+        
+    }
+
+    // .order__img
+
+    &__img {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        & img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__detail-btn {
+        display: flex;
+        align-items: center;
+    }
+}
+.sum-order {
+    text-align: center;
+    // .sum-order__title
+
+    &__title {
+        font-weight: 500;
+        margin-bottom: 10px;
+
+        & span {
+            @media (max-width: 520px) {
+                display: none;
+            }
+        }
+    }
+
+    // .sum-order__value
+
+    &__value {
+        font-weight: 400;
+        font-size: clamp(16px, 3vw, 20px);
+    }
+}

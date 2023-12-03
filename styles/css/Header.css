@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Comforter&family=Open+Sans:ital,wght@1,300&display=swap");
+.header {
+  position: relative;
+  padding-top: clamp(5px, 2vw, 10px);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: clamp(5px, 1vw, 20px);
+}
+.header__container {
+  height: 100%;
+  min-height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+@media (max-width: 420px) {
+  .header__container {
+    min-height: 80px;
+  }
+}
+.header__body {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+}
+@media (max-width: 420px) {
+  .header__body {
+    gap: 20px;
+  }
+}
+.header__search-button {
+  display: none;
+  justify-self: flex-end;
+  font-size: 24px;
+}
+@media (max-width: 960px) {
+  .header__search-button {
+    display: block;
+  }
+}
+.header__phone-button {
+  display: none;
+  justify-self: flex-end;
+  font-size: 24px;
+}
+@media (max-width: 700px) {
+  .header__phone-button {
+    display: block;
+  }
+}
+.header__info-wrapper {
+  position: relative;
+}
+.header__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+@media (max-width: 700px) {
+  .header__info {
+    display: none;
+  }
+}
+.header__account-icon {
+  position: relative;
+  font-size: 35px;
+  cursor: pointer;
+}
+.header__account-icon svg {
+  fill: #727272;
+  transition: 0.3s;
+}
+@media (any-hover: hover) {
+  .header__account-icon:hover svg {
+    fill: #FF6600;
+  }
+}
+.header__account-icon._loggedIn::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: #27a700;
+}
+@media (max-width: 700px) {
+  .header__account-icon._loggedIn::after {
+    width: 6px;
+    height: 6px;
+  }
+}
+@media (max-width: 700px) {
+  .header__account-icon {
+    font-size: 24px;
+  }
+}
+.header-info__tel {
+  font-size: 22px;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+@media (any-hover: hover) {
+  .header-info__tel:hover {
+    color: #FF6600;
+  }
+}
+.header-info__schedule {
+  text-align: center;
+  font-size: 13px;
+}
+
+.header-phone-drop {
+  display: none;
+}
+@media (max-width: 700px) {
+  .header-phone-drop {
+    position: absolute;
+    top: 30px;
+    left: -50px;
+    width: 150px;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.3s;
+  }
+  .header-phone-drop._active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}
+.header-phone-drop__items {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: stretch;
+  font-size: 16px;
+}
+
+.cart-btn {
+  cursor: pointer;
+  flex: 1 1 auto;
+  min-width: 150px;
+  color: #fff;
+  background-color: #FF6600;
+  padding: 10px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+@media (max-width: 540px) {
+  .cart-btn {
+    min-width: unset;
+  }
+}
+@media (max-width: 540px) {
+  .cart-btn {
+    font-size: 14px;
+    padding: 7px 12px;
+  }
+}
+.cart-btn__sum {
+  border-right: 1px solid #fff;
+  padding-right: 15px;
+  white-space: nowrap;
+}
+.cart-btn__sum span {
+  font-size: 12px;
+}
+@media (max-width: 540px) {
+  .cart-btn__sum {
+    display: none;
+  }
+}
+.cart-btn__quantity {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+@media (max-width: 400px) {
+  .cart-btn__quantity {
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=Header.css.map */

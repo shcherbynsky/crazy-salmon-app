@@ -1,0 +1,9 @@
+.product-content {
+  margin-bottom: 40px;
+}
+.product-content__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  gap: 40px;
+}/*# sourceMappingURL=ProductContent.css.map */

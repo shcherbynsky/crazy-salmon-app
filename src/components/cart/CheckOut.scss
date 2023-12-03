@@ -1,0 +1,286 @@
+.checkout {
+    padding-bottom: 40px;
+    font-size: clamp(14px, 3vw, 16px);
+    // .checkout__container
+
+    &__container {}
+
+    // .checkout__title
+
+    &__title {}
+
+    // .checkout__body
+
+    &__body {
+        padding: 0 100px;
+
+        @media (max-width: 767.98px) {
+            padding: 0;
+        }
+
+    }
+
+    // .checkout__form
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(20px, 3vw, 30px);
+        // padding-bottom: 50px;
+        // margin-bottom: 50px;
+        
+    }
+
+    // .checkout__comment
+
+    &-comment {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        &__text {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #cacaca;
+            border-radius: 10px;
+            padding: 10px;
+            resize: none;
+
+            &::placeholder {
+                color: #cacaca;
+            }
+        }
+    }
+
+    // .checkout__paymethod
+
+    &__paymethod {}
+
+    // .checkout__info
+
+    &__info {}
+
+    &__btn {
+        align-self: flex-start;
+        width: 200px;
+
+        @media (max-width: 767.98px) {
+            align-self: center;
+        }
+    }
+}
+
+
+
+.form-checkout {
+
+    // .form-checkout__userinfo
+
+    &__userinfo {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & label {
+            flex: 0 0 100px;
+            font-weight: 500;
+        }
+    }
+
+    // .form-checkout__item
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        & span {
+            margin-left: 10px;
+        }
+    }
+
+    // .form-checkout__label
+
+    &__label {
+        
+    }
+
+    &__input-wrapper {
+        color: #727272;
+        overflow: hidden;
+        width: 300px;
+        border: 1px solid #cacaca;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        flex-wrap: nowrap;
+
+        & input {
+            background-color: transparent!important;
+            color: #727272;
+
+        }
+        & input:-internal-autofill-selected {
+            background-color: transparent!important;
+        }
+
+        &-phone {
+            
+            &::before {
+                content: '+380';
+                padding-left: 5px;
+                margin-bottom: -1px;
+            }
+        }
+    }
+
+    &__title {
+        font-weight: 500;
+    }
+
+    &__input {
+        padding: 5px;
+
+        flex: 1 1 auto;
+
+        &-phone {
+            // padding-left: 15px;
+        }
+    }
+
+    & input {
+        accent-color: #FE5F1E;
+    }
+}
+
+.input-err {}
+
+.input {}
+
+.input- {}
+
+.tel-prefix {}
+
+.input-tel {}
+
+.input-pass {}
+
+.checkout-address {
+    display: flex;
+    align-items: center;
+    // .checkout-address__title
+
+    &__title {}
+
+    // .checkout-address__value
+
+    &__value {}
+
+
+}
+
+.checkout-person {
+
+    // .checkout-person__title
+
+    &__title {}
+
+    // .checkout-person__value
+
+    &__value {}
+}
+
+.checkout-tophone {
+
+    // .checkout-tophone__title
+
+    &__title {
+        margin-bottom: 5px;
+    }
+
+    // .checkout-tophone__descr
+
+    &__descr {
+        color: #cacaca;
+        margin-bottom: 10px;
+    }
+
+    // .checkout-tophone__body
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    // .checkout-tophone__item
+
+    &__item {}
+}
+
+.paymethod-checkout {
+    display: flex;
+        flex-direction: column;
+        gap: 10px;
+    // .paymethod-checkout__title
+
+    &__title {}
+
+    // .paymethod-checkout__body
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    // .paymethod-checkout__item
+
+    &__item {}
+}
+
+.info-checkout {
+    // padding-bottom: clamp(20px, 3vw, 40px);
+    padding-top: clamp(20px, 3vw, 30px);
+    display: flex;
+    border-top: 1px solid #cacaca;
+    // justify-content: flex-end;
+    // .info-checkout__body
+
+    &__body {}
+
+    // .info-checkout__item
+
+    &__item {
+
+        &:not(:last-child) {
+            margin-bottom: 20px;
+        }
+    }
+
+    // .info-checkout__title
+
+    &__title {
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    // .info-checkout__value
+
+    &__value {}
+
+    // .info-checkout__value-free
+
+    &__value-free {
+        
+    }
+
+    // .info-checkout__value-charge
+
+    &__value-charge {
+
+        & span {
+            color: green;
+        }
+    }
+}

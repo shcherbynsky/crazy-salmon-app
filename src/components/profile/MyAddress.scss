@@ -1,0 +1,97 @@
+.myaddress {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+
+  &__body {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 20px;
+  }
+
+  // .myaddress__items
+
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 400px));
+    gap: 20px;
+  }
+
+  // .myaddress__item
+
+  &__item {}
+
+  &__add-btn {
+    align-self: center;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+
+.item-myaddress {
+  padding: 20px;
+  font-size: 20px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  gap: 30px;
+
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+
+
+  &__body {
+    
+    & div {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 10px;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+}
+&__actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+  // .item-myaddress__street
+  &__street {}
+
+  // .item-myaddress__house
+
+  &__house {}
+
+  // .item-myaddress__flat
+
+  &__flat {}
+
+  // .item-myaddress__city
+
+  &__city {}
+
+  // .item-myaddress__edit
+
+  &__edit {
+    cursor: pointer;
+   
+  }
+  &__delete {
+   
+    cursor: pointer;
+   
+  }
+}

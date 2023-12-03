@@ -1,0 +1,33 @@
+.counter {
+  width: clamp(80px, 2vw, 100px);
+  height: clamp(20px, 2vw, 25px);
+  font-size: clamp(14px, 2vw, 16px);
+}
+.counter__body {
+  display: flex;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+}
+.counter__button {
+  flex: 0 0 33.333%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background-color: #FF6600;
+  transition: 0.3s;
+}
+@media (any-hover: hover) {
+  .counter__button:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 12px -5px rgba(0, 0, 0, 0.7);
+  }
+}
+.counter__value {
+  flex: 0 0 33.333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}/*# sourceMappingURL=Counter.css.map */

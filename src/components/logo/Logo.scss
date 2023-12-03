@@ -1,0 +1,50 @@
+.logo {
+    max-width: 120px;
+    flex: 0 0 120px;
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    // .logo__img
+
+    @media (max-width: 420px) {
+        flex: 0 0 80px;
+    }
+
+    &__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+        max-width: 120px;
+        // width: 40px;
+        // height: 40px;
+
+        // @media (max-width: 400px) {
+        //     width: 30px;
+        //     height: 30px;
+        // }
+
+        & img {
+            max-width: 70%;
+        }
+    }
+
+
+    // .logo__name
+
+    &__name {
+        width: 100%;
+        text-align: center;
+        font-family: 'Comforter', sans-serif;
+        // color: #000;
+        font-size: 38px;
+        line-height: .7;
+        // text-transform: uppercase;
+
+        @media (max-width: 420px) {
+            font-size: 24px;
+        }
+    }
+    
+}

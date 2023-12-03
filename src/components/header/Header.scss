@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Open+Sans:ital,wght@1,300&display=swap');
+
+.header {
+    position: relative;
+    padding-top: clamp(5px, 2vw, 10px);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: clamp(5px, 1vw, 20px);
+
+
+    // .header__container
+
+    &__container {
+        height: 100%;
+      
+        min-height: 120px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+
+        @media (max-width: 420px) {
+            min-height: 80px;
+        }
+    }
+
+
+
+        
+
+    // .header__logo
+
+    &__logo {
+       
+    }
+
+    &__body {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 40px;
+
+        @media (max-width: 420px) {
+            gap: 20px;
+        }
+    }
+
+    &__search-button {
+        display: none;
+        justify-self: flex-end;
+        font-size: 24px;
+
+        @media (max-width: 960px) {
+            display: block;
+          }
+    }
+    &__phone-button {
+        display: none;
+        justify-self: flex-end;
+        font-size: 24px;
+
+        @media (max-width: 700px) {
+            display: block;
+          }
+    }
+    &__info-wrapper {
+        position: relative;
+        // display: none;
+
+        @media (max-width: 700px) {
+            // display: none;
+          }
+    }
+
+    &__info {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        @media (max-width: 700px) {
+            display: none;
+          }
+
+    }
+
+    
+
+    &__account-icon {
+        position: relative;
+        font-size: 35px;
+        cursor: pointer;
+
+        & svg {
+            
+            fill: #727272;
+            transition: .3s;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                & svg  {
+                    
+                    fill: #FF6600;
+                }
+            }}
+
+        &._loggedIn {
+            &::after {
+                content: '';
+                position: absolute;
+                z-index: 2;
+                top: 0;
+                right: 0;
+                width: 8px;
+                height: 8px;
+                border-radius: 100%;
+                background-color: #27a700;
+
+                @media (max-width: 700px) {
+                    width: 6px;
+                height: 6px;
+                }
+            }
+        }
+
+        @media (max-width: 700px) {
+            font-size: 24px;
+        }
+    }
+
+    // .header__cart
+
+    &__cart {}
+}
+
+.header-info {
+    &__tel {
+        font-size: 22px;
+        white-space: nowrap;
+        transition: color .3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: #FF6600;
+            }
+        }
+    }
+    &__schedule {
+        text-align: center;
+        font-size: 13px;
+    }
+}
+
+
+.header-phone-drop {
+    display: none;
+    @media (max-width: 700px) {
+        position: absolute;
+        top: 30px;
+        left: -50px;
+        width: 150px;
+        
+        display: block;
+        
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        
+        transition: .3s;
+
+        &._active {
+            opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+        }
+        
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: stretch;
+        font-size: 16px;
+    }
+}
+
+
+.cart-btn {
+    cursor: pointer;
+    flex: 1 1 auto;
+    min-width: 150px;
+    color: #fff;
+    background-color: #FF6600;
+    padding: 10px 20px;
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 15px;
+    // .cart__sum
+    // &::before {
+    //     content: '';
+    //     width: 1px;
+    //     height: 20px;
+    //     background-color: #fff;
+    // }
+    @media (max-width: 540px) {
+        min-width: unset;
+    }
+    @media (max-width: 540px) {
+        font-size: 14px;
+        padding: 7px 12px;
+    }
+
+    &__sum {
+        border-right: 1px solid #fff;
+        padding-right: 15px;
+        white-space: nowrap;
+
+        & span {
+            font-size: 12px;
+        }
+
+        @media (max-width: 540px) {
+            display: none;
+        }
+    }
+
+    // .cart__quantity
+
+    &__quantity {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+
+        @media (max-width: 400px) {
+            font-size: 14px;
+        }
+    }
+
+    &__icon {}
+}
