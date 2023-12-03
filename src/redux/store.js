@@ -4,7 +4,7 @@ import CategoryReducer from './slices/categorySlice'
 import CartReducer from './slices/cartSlice'
 import UserReducer  from './slices/userSlice'
 import WishlistReducer  from './slices/wishlistSlice'
-import OrderReducer  from './slices/OrderSlice'
+import OrderReducer  from './slices/orderSlice'
 
 export const store = configureStore({
   reducer: {
