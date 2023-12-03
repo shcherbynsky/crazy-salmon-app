@@ -1,6 +1,9 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function MessageModal({isModalShown, setIsModalShown, status, messageOk, MessageError}) {
+
+    const navigate = useNavigate()
 
     const modalLayoutRef = React.useRef()
     const modalCloseButtonRef = React.useRef()

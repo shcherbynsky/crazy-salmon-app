@@ -26,6 +26,8 @@ function ProductContent() {
 
             const sortObj = sortList.find(obj => obj.sortBy === sortByString)
 
+            console.log('sortObj = ', sortObj);
+
             dispatch(setSortBy(sortByString))
             dispatch(setSortOrder(sortOrderString))
             dispatch(setSortTitle(sortObj.sortTitle))

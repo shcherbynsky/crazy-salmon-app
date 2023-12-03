@@ -119,7 +119,7 @@ export const CartSlice = createSlice({
 
     addItemToLocalCart: (state, action) => {
       const findItem = state.cartItems.find(
-        (item) => item.productId === action.payload.productId
+        (item) => parseInt(item.productId) === parseInt(action.payload.productId)
       );
       if (findItem) {
         findItem.productQty++;

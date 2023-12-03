@@ -1,7 +1,7 @@
 import React from 'react'
 import { BiHeart, BiSolidHeart } from "react-icons/bi";
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { addItemToCart, addItemToLocalCart } from '../../redux/slices/cartSlice'
 import { addFavouriteItem, removeFromfavouriteItem } from '../../redux/slices/wishlistSlice';
 import { fetchOneProduct } from '../../redux/slices/productSlice'
@@ -11,6 +11,7 @@ import Loader from '../loader/Loader'
 function ProductCard() {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const productId = useParams().id
     const { productItems } = useSelector(state => state.product)
@@ -21,7 +22,6 @@ function ProductCard() {
     const inFavourites = wishlistItems.findIndex((item) => parseInt(item.productId) === parseInt(productId))
     const findItem = cartItems.find((item) => parseInt(item.productId) === parseInt(productId))
 
-
     React.useEffect(() => {
         dispatch(fetchOneProduct(productId))
     }, [])
@@ -31,6 +31,10 @@ function ProductCard() {
         if (token) {
             dispatch(addItemToCart(productId))
         } else {
+            const productId = productItems.id
+            const price = productItems.price
+            const title = productItems.title
+            const imageUrl = productItems.imageUrl
             dispatch(addItemToLocalCart({ productId, price, title, imageUrl }))
         }
     }
@@ -94,7 +98,7 @@ function ProductCard() {
                                     <button onClick={() => onAddToCartClick()} className="productcard__btn btn__card">Хочу</button>
                                     :
                                     <Counter
-                                        productId={productId}
+                                        productId={productItems.id}
                                     />
                             }
                         </div>

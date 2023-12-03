@@ -89,28 +89,25 @@ function CheckOut() {
     }
 
 
-    const onSubmit = (obj) => {
-        console.log(obj, personCount);
-       
+    
+    const onSubmit = ({ name, phone, email, toPhone, payMethod, comment }) => {
+
+        const productData = cartItems.map((item) => {
+            return { productQty: item.productQty, productId: item.productId, productPrice: item.price }
+        })
+
+        // -----------------------------------------
+
+        dispatch(addOrder({ productData, address, sum, name, phone, email, toPhone, payMethod, comment, personCount }))
+
+        if (status) {
+            dispatch(deleteCart())
+        }
+
+        if (!isLoading) {
+            setIsThanksModalShown(true)
+        }
     }
-    // const onSubmit = ({ name, phone, email, toPhone, payMethod, comment }) => {
-
-    //     const productData = cartItems.map((item) => {
-    //         return { productQty: item.productQty, productId: item.productId, productPrice: item.price }
-    //     })
-
-    //     // -----------------------------------------
-
-    //     dispatch(addOrder({ productData, address, sum, name, phone, email, toPhone, payMethod, comment, personCount }))
-
-    //     if (status) {
-    //         dispatch(deleteCart())
-    //     }
-
-    //     if (!isLoading) {
-    //         setIsThanksModalShown(true)
-    //     }
-    // }
 
     if (isLoading) {
         return <Loader />
