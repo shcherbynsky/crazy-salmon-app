@@ -5,7 +5,7 @@ import { setIsCartShown } from '../../redux/slices/cartSlice';
 import Logo from '../logo/Logo';
 import { useDispatch, useSelector } from 'react-redux';
 import Search from '../search/Search';
-import { isAuthed, setIsAuthShown } from '../../redux/slices/userSlice';
+import { isAuthed, setIsAuthShown, setProfileMenuIndex } from '../../redux/slices/userSlice';
 import { reset } from '../../redux/slices/productSlice';
 // import { checkIsAuth, setIsAuthShown } from '../../redux/slices/userSlice';
 
@@ -40,6 +40,8 @@ const Header = () => {
         if (isAuth) {
             navigate('/profile/wish-list')
             dispatch(reset())
+            // setSectionTitle(menuItems[index].title)
+            dispatch(setProfileMenuIndex(0))
         } else {
             navigate('/login')
         } 
