@@ -19,7 +19,7 @@ function ProductCard() {
     const { cartItems } = useSelector(state => state.cart)
     const { wishlistItems } = useSelector(state => state.wishlist)
 
-    const inFavourites = wishlistItems.findIndex((item) => parseInt(item.productId) === parseInt(productId))
+    const inFavourites = wishlistItems.find((item) => parseInt(item.productId) === parseInt(productId))
     const findItem = cartItems.find((item) => parseInt(item.productId) === parseInt(productId))
 
     React.useEffect(() => {
@@ -41,9 +41,11 @@ function ProductCard() {
 
     const onAddTofavoritesClick = () => {
         if (token) {
-            if (inFavourites >= 0) {
+            if (inFavourites) {
+                console.log('inFavourites');
                 dispatch(removeFromfavouriteItem(productId))
             } else {
+                console.log('Not in inFavourites');
                 dispatch(addFavouriteItem(productId))
             }
         } else {
@@ -65,7 +67,7 @@ function ProductCard() {
                         <div
                             className="product__marker-addfaforite"
                             onClick={onAddTofavoritesClick}>
-                            {inFavourites >= 0 ? <BiSolidHeart size={35} color='white' /> : <BiHeart size={35} color='white' />}
+                            {inFavourites ? <BiSolidHeart size={35} color='white' /> : <BiHeart size={35} color='white' />}
                         </div>
                     </div>
                     <div className="productcard__content">

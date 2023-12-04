@@ -13,8 +13,8 @@ function WishList() {
 
   const wishlistElements = wishlistItems.length ? wishlistItems.map((product) => {
     return <ProductItem
-      key={product.id}
-      productId={product.id}
+      key={product.productId}
+      productId={product.productId}
       title={product.title}
       imageUrl={product.imageUrl}
       description={product.descr}

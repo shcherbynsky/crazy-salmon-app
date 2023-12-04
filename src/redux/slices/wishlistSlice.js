@@ -5,9 +5,9 @@ import instance from "../../utils/axios";
 export const addFavouriteItem = createAsyncThunk(
   "wishlist/addFavouriteItem",
 
-  async (productId, { getState }) => {
-    const userId = getState().user.user.id;
-    const { data } = await instance.post(`/favourite/add`, { productId, userId });
+  async (productId) => {
+
+    const { data } = await instance.post(`/favourite/add`, {productId});
     return data;
   }
 );
@@ -17,9 +17,10 @@ export const addFavouriteItem = createAsyncThunk(
 export const removeFromfavouriteItem = createAsyncThunk(
   "wishlist/removeFromfavouriteItem",
 
-  async (productId, { getState }) => {
-    const userId = getState().user?.user.id;
-    const { data } = await instance.delete(`/favourite?productId=${productId}&userId=${userId}`);
+  async (productId) => {
+    
+    
+    const { data } = await instance.delete(`/favourite?productId=${productId}`);
     return data;
   }
 );
@@ -28,8 +29,8 @@ export const removeFromfavouriteItem = createAsyncThunk(
 export const getfavouriteItems = createAsyncThunk(
   "wishlist/getfavouriteItems",
 
-  async (userId) => {
-    const { data } = await instance.post(`/favourite`, {userId});
+  async () => {
+    const { data } = await instance.get(`/favourite`);
     
     return data;
   }
@@ -83,8 +84,7 @@ export const WishlistSlice = createSlice({
     },
 
     [removeFromfavouriteItem.fulfilled]: (state, action) => {
-      console.log('wishItems changed');
-      state.wishlistItems = state.wishlistItems.filter((item) => parseInt(item.id) !== parseInt(action.payload.productId))
+      state.wishlistItems = state.wishlistItems.filter((item) => parseInt(item.productId) !== parseInt(action.payload.productId))
      
 
     },

@@ -20,7 +20,7 @@ function ProductItem({
     const { wishlistItems } = useSelector(state => state.wishlist)
     const { cartItems } = useSelector(state => state.cart)
     const isAuth = useSelector(isAuthed)
-    const inFavourites = wishlistItems.findIndex((item) => item.id === productId)
+    const inFavourites = wishlistItems.find((item) => item.productId === productId)
 
     const findItem = cartItems.find((item) => item.productId === productId)
 
@@ -34,7 +34,7 @@ function ProductItem({
 
     const onAddTofavoritesClick = () => {
         if (isAuth) {
-            if (inFavourites >= 0) {
+            if (inFavourites) {
                 dispatch(removeFromfavouriteItem(productId))
             } else {
                 dispatch(addFavouriteItem(productId))
@@ -77,7 +77,7 @@ function ProductItem({
             <div
                 className="product__marker-addfaforite"
                 onClick={onAddTofavoritesClick}>
-                {inFavourites >= 0 ? <BiSolidHeart size={35} color='white' /> : <BiHeart size={35} color='white' />}
+                {inFavourites ? <BiSolidHeart size={35} color='white' /> : <BiHeart size={35} color='white' />}
             </div>
         </div>
     )
