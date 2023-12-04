@@ -18,16 +18,13 @@ function ProductContent() {
 
 
     React.useEffect(() => {
-        if (window.location.search) {
-
+        if (searchParams.get('sortBy')) {
             const categoryString = searchParams.get('category')
             const sortByString = searchParams.get('sortBy')
-            console.log('sortBy = ', searchParams.get('sortBy'));
             const sortOrderString = searchParams.get('sortOrder')
 
             const sortObj = sortList.find(obj => obj.sortBy === sortByString)
 
-            console.log('sortObj = ', sortObj);
 
             dispatch(setSortBy(sortByString))
             dispatch(setSortOrder(sortOrderString))

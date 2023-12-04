@@ -1,15 +1,37 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import { setCategory, setSearchValue, setSearchValueLocal } from '../../redux/slices/productSlice'
 import Logo from '../logo/Logo'
 
 function Footer({ menuItems }) {
 
-  const menuElements = menuItems.map((item) => {
+  const dispatch = useDispatch()
+  const onMenuClick = (index) => {
+    window.scroll(0, 0)
+    dispatch(setCategory(index + 1))
+    dispatch(setSearchValue(''))
+    dispatch(setSearchValueLocal(''))
+
+  }
+
+ 
+  const menuElements = menuItems.map((item, index) => {
     return (
       <div key={item.id} className="footer__item">
-        <a href="#!" className="footer__link">{item.title}</a>
+        <NavLink to={'/menu'}
+          onClick={() => onMenuClick(index)}
+          className={"footer__link__link"}>
+          {item.title}
+        </NavLink>
       </div>
+
     )
   })
+
+  
+
+ 
 
 
   return (
@@ -24,7 +46,7 @@ function Footer({ menuItems }) {
           </div>
           <div className="footer__column">
             <div className="footer__item">
-             Контакти
+              Контакти
             </div>
             <div className="footer__item">
               <a href="tel:+380508030004" className="footer__link">+38 (050) 803 00 04</a>
