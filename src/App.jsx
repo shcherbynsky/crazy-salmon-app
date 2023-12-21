@@ -117,6 +117,13 @@ function App() {
   const { user, token } = useSelector(state => state.user)
 
 
+  React.useEffect(() => {
+    if (window.screen.width > 767.98) {
+      window.alert(`Додаток було розроблено для мобільних пристроїв! На великих екранах він може відображатись некоректно. Вибачте за незручності!`)
+    }
+  }, [])
+
+
   React.useEffect(()=> {
     dispatch(getMe()) 
     
@@ -138,15 +145,11 @@ function App() {
 
   return (
     <div className="wrapper">
-      {/* <Header />
-      <Menu menuItems={categoryItems} /> */}
-      {/* <div className="main"> */}
+
       <RouterProvider router={router}>
 
       </RouterProvider>
 
-      {/* /* </div> */}
-      {/* <Footer menuItems={categoryItems}/> */}
     </div>
 
 
