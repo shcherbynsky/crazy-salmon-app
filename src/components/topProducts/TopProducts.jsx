@@ -1,13 +1,14 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTopProduct } from '../../redux/slices/productSlice'
+import Loader from '../loader/Loader'
 import ProductItem from '../ProductItem/ProductItem'
 
 
 function TopProducts() {
     const dispatch = useDispatch()
 
-    const { productItems } = useSelector(state => state.product)
+    const { productItems, isLoading } = useSelector(state => state.product)
 
     React.useEffect(() => {
         dispatch(fetchTopProduct())
@@ -32,6 +33,9 @@ function TopProducts() {
         )
     }) : []
 
+    if (isLoading) {
+        return <Loader />
+    }
 
 
     return (
