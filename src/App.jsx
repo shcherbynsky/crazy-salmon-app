@@ -117,12 +117,6 @@ function App() {
   const { user, token } = useSelector(state => state.user)
 
 
-  React.useEffect(() => {
-    if (window.screen.width > 767.98) {
-      window.alert(`Додаток було розроблено для мобільних пристроїв! На великих екранах він може відображатись некоректно. Вибачте за незручності!`)
-    }
-  }, [])
-
 
   React.useEffect(()=> {
     dispatch(getMe()) 
